@@ -1,0 +1,25 @@
+
+<% if (articleList.length) { %>
+    <table class="tabletest2">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Views</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < articleList.length; i++) { %>
+                <tr class="<%= ((articleList[i].deleted) ? 'deleted' : '') %>">
+                    <td><%= articleList[i].title %></td>
+                    <td><%= articleList[i].createdon %></td>
+                    <td><%= articleList[i].views %></td>
+                    <td><a href="/details/<%= articleList[i].id %>">Details</a></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+<% } else { %>
+    <p>No blog articles.</p>
+<% } %>

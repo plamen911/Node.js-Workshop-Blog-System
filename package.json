@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-exam-2016-10-09",
+  "version": "1.0.0",
+  "engines": {
+    "node": "6.2.x",
+    "npm": "3.9.x"
+  },
+  "description": "Node.js Exam – Blog System",
+  "main": "app.js",
+  "scripts": {
+    "test": "standard && node app.js"
+  },
+  "author": "Plamen Markov",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "connect-busboy": "0.0.2",
+    "ejs": "2.5.2",
+    "express": "4.14.0",
+    "jsonfile": "2.4.0",
+    "uid2": "0.0.3"
+  },
+  "devDependencies": {
+    "standard": "^8.3.0"
+  }
+}

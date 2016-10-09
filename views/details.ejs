@@ -1,0 +1,79 @@
+<% include partials/htmlbegin.ejs %>
+
+<h1>Article: <%= title %></h1>
+<form action="/state" method="post">
+    <input type="hidden" id="articleId" name="articleId" value="<%= id %>">
+    <table class="tabletest2">
+        <tr>
+            <th>ID</th>
+            <td><%= id %></td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td><%= title %></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><%= description %></td>
+        </tr>
+        <% if (filePath) { %>
+        <tr>
+            <th>Image</th>
+            <td><a href="/images/<%= filePath %>" class="thumbnail" target="_blank">
+                    <img src="/images/<%= filePath %>" alt="" title="<%= fileName %>" width="120">
+                </a>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+            <th>Total Views</th>
+            <td><%= views %></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="<% if (deleted) { %>Un-delete<% } else { %>Delete<% } %>">
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</form>
+
+<h2>Add Comment</h2>
+<form action="/details/<%= id %>/comment" method="post">
+    <% if (errors.length) { %>
+        <ul class="error">
+            <% for (let i = 0; i < errors.length; i++) { %>
+            <li><%= errors[i] %></li>
+            <% } %>
+        </ul>
+    <% } %>
+    <p><label for="username">Username</label><br>
+        <input type="text" id="username" name="username" placeholder="Username..."></p>
+    <p><label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" placeholder="Comment..."></textarea></p>
+    <p><input type="submit" value="Submit"></p>
+</form>
+
+<% if (comments.length) { %>
+    <h2>Comments</h2>
+    <table class="tabletest2">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Comment</th>
+                <th>Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% for (let i = 0; i < comments.length; i++) { %>
+            <tr>
+                <td><%= comments[i].username %></td>
+                <td><%= comments[i].comment %></td>
+                <td><%= comments[i].createdon %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+<% } %>
+
+<% include partials/htmlend.ejs %>

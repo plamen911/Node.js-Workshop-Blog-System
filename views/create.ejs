@@ -1,0 +1,21 @@
+<% include partials/htmlbegin.ejs %>
+
+<h1>New Article</h1>
+<form action="/create" method="post" enctype="multipart/form-data">
+    <% if (errors.length) { %>
+        <ul class="error">
+            <% for (let i = 0; i < errors.length; i++) { %>
+                <li><%= errors[i] %></li>
+            <% } %>
+        </ul>
+    <% } %>
+    <p><label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= title %>" placeholder="Article Title..."></p>
+    <p><label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Article Description..."><%= description %></textarea></p>
+    <p><label for="userfile">Select Image to Upload:</label>
+        <input type="file" id="image" name="image" accept="image/*"></p>
+    <p><input type="submit" value="Add Article"></p>
+</form>
+
+<% include partials/htmlend.ejs %>
