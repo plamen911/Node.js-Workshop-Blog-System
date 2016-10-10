@@ -19,9 +19,10 @@ When this route is reached, details about the article with the provided ID shoul
 Allow the article to be undeleted. Change the button text and behavior depending on the state of the article.
 
 ### Problem 7. Add form for comments on the article details (5 Points)
-Add form to the article details allowing the user to save comments for the current article. The form should have two fields - for username and for the comment text. 
-    Problem 8. Route POST/details/{id}/comment (15 Points)
-    The form for comments should save the data on the above route. The comment should be saved for the article with the provided ID. Validate the comment. It should not be empty. Save the date of the comment too. Add on the "/details/{id}" page all comments made for the corresponding article.
+Add form to the article details allowing the user to save comments for the current article. The form should have two fields - for username and for the comment text.
+
+### Problem 8. Route POST/details/{id}/comment (15 Points)
+The form for comments should save the data on the above route. The comment should be saved for the article with the provided ID. Validate the comment. It should not be empty. Save the date of the comment too. Add on the "/details/{id}" page all comments made for the corresponding article.
 
 ### Problem 9. Add image upload for each article (20 Points)
 Add an input type "file" to the "/create" form allowing for the user to save an image for each article. Save the file on a server folder named "images". Change the file name so that there will not be any collisions if the user sends two files with the same name. Show the file on the article details page. Use `<img src="imageSrc" />` HTML tag.
